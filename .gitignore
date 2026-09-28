@@ -1,0 +1,158 @@
+# =========================
+
+# Python
+
+# =========================
+
+**pycache**/
+*.py[cod]
+*$py.class
+*.so
+
+# =========================
+
+# Virtual Environment
+
+# =========================
+
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# =========================
+
+# Django
+
+# =========================
+
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# =========================
+
+# Environment Variables
+
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+
+# Static / Media
+
+# =========================
+
+staticfiles/
+media/
+
+# =========================
+
+# Testing / Coverage
+
+# =========================
+
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+
+# =========================
+
+# Type Checkers
+
+# =========================
+
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# =========================
+
+# Django migrations
+
+# =========================
+
+# Do NOT ignore migrations.
+
+# Migration files should normally be committed.
+
+# migrations/
+
+# */migrations/
+
+# =========================
+
+# IDE / Editors
+
+# =========================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+
+# OS Files
+
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+
+# Build / Distribution
+
+# =========================
+
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+
+# Jupyter Notebook
+
+# =========================
+
+.ipynb_checkpoints/
+
+# =========================
+
+# Ruff
+
+# =========================
+
+.ruff_cache/
+
+# =========================
+
+# Pyright
+
+# =========================
+
+.pyright/
+
+# =========================
+
+# Secrets / Local Config
+
+# =========================
+
+*.pem
+*.key
+secrets.json
+credentials.json
