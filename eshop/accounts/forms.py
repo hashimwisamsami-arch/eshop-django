@@ -63,3 +63,23 @@ class RgisterForm(forms.Form):
             )
 
         return password
+
+class LoginForm(forms.Form):
+
+    user = forms.CharField(widget=forms.TextInput(attrs={
+         "class":"form-control form-control-lg",
+         "placeholder":"Email or Username"
+    }),
+    error_messages={
+        "required":"Enter your Email or Username"
+    })
+
+  
+    password = forms.CharField(max_length=100,widget=forms.PasswordInput(attrs={
+        "placeholder":"Enter Your password","class":"form-control form-control-lg"
+    }),
+    error_messages={
+        "required":"Password is required"
+    })
+
+   
