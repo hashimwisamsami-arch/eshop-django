@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {""} {% block title %} Register {% endblock %} {""}
+{%block body %}
+<div class="w-75 m-auto">
+  <h1 class="text-success text-center mb-3">Login to your account</h1>
+  <form
+    action=""
+    method="post"
+    class="border p-4 rounded bg-secondary bg-opacity-10"
+  >
+    {%csrf_token%}
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.user.id_for_label}}"
+      >
+        {{form.user.label}}
+      </label>
+      {{form.user}} {%if form.user.error%}
+      <!--  -->
+      {%for error in form.user.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.password.id_for_label}}"
+      >
+        {{form.password.label}}
+      </label>
+      {{form.password}} {%if form.password.error%}
+      <!--  -->
+      {%for error in form.password.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+
+    <button class="btn btn-success btn-lg w-100 mt-2" type="submit">
+      <i class="bi bi-box-arrow-in-right"></i>
+      Login
+    </button>
+  </form>
+</div>
+{% endblock %}
