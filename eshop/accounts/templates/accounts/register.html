@@ -1,10 +1,95 @@
 {% extends 'base.html' %} {""} {% block title %} Register {% endblock %} {""}
 {%block body %}
-<div>
-  <h1>Register to your account</h1>
-  <form action="" method="post">
-    {%csrf_token%} {{form.as_p}}
-    <button type="submit">Register</button>
+<div class="w-75 m-auto">
+  <h1 class="text-primary text-center mb-3">Create a new account</h1>
+  <form
+    action=""
+    method="post"
+    class="border p-4 rounded bg-secondary bg-opacity-10"
+  >
+    {%csrf_token%}
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.user_name.id_for_label}}"
+      >
+        {{form.user_name.label}}
+      </label>
+      {{form.user_name}} {%if form.user_name.error%}
+      <!--  -->
+      {%for error in form.user_name.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.email.id_for_label}}"
+      >
+        {{form.email.label}}
+      </label>
+      {{form.email}} {%if form.email.error%}
+      <!--  -->
+      {%for error in form.email.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.first_name.id_for_label}}"
+      >
+        {{form.first_name.label}}
+      </label>
+      {{form.first_name}} {%if form.first_name.error%}
+      <!--  -->
+      {%for error in form.first_name.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.last_name.id_for_label}}"
+      >
+        {{form.last_name.label}}
+      </label>
+      {{form.last_name}} {%if form.last_name.error%}
+      <!--  -->
+      {%for error in form.last_name.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.password.id_for_label}}"
+      >
+        {{form.password.label}}
+      </label>
+      {{form.password}} {%if form.password.error%}
+      <!--  -->
+      {%for error in form.password.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+    <div class="mb-3">
+      <label
+        class="form-label ms-1 text-fark fw-bold"
+        for="{{form.confirm_password.id_for_label}}"
+      >
+        {{form.confirm_password.label}}
+      </label>
+      {{form.confirm_password}} {%if form.confirm_password.error%}
+      <!--  -->
+      {%for error in form.confirm_password.errors%}
+      <bold class="text-danger ms-1">{{error}}</bold>
+      {%endfor%} {""} {%endif%}
+    </div>
+    <button class="btn btn-primary btn-lg w-100 mt-2" type="submit">
+      <i class="bi bi-person-add"></i>
+      Register
+    </button>
   </form>
 </div>
 {% endblock %}

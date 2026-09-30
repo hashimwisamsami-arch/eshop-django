@@ -4,17 +4,27 @@ from django.contrib.auth.models import User
 
 class RgisterForm(forms.Form):
 
-    user_name = forms.CharField(max_length=80)
+    user_name = forms.CharField(max_length=80,widget=forms.TextInput(attrs={
+         "class":"form-control form-control-lg"
+    }))
 
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+         "class":"form-control form-control-lg"
+    }))
 
-    first_name = forms.CharField(max_length=80)
+    first_name = forms.CharField(max_length=80,widget=forms.TextInput(attrs={
+         "class":"form-control form-control-lg"
+    }))
 
-    last_name = forms.CharField(max_length=80)
+    last_name = forms.CharField(max_length=80,widget=forms.TextInput(attrs={
+         "class":"form-control form-control-lg"
+    }))
 
-    password = forms.CharField(max_length=100)
+    password = forms.CharField(max_length=100,widget=forms.PasswordInput(attrs={
+        "placeholder":"Enter Your password","class":"form-control form-control-lg"
+    }))
 
-    confirm_password = forms.CharField(max_length=100)
+    confirm_password = forms.CharField(max_length=100,widget=forms.PasswordInput(attrs={"class":"form-control form-control-lg"}))
 
     def clean_user_name(self):
         user_name=self.cleaned_data["user_name"]
