@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate,login,logout
 
 
 def user_register(request):
+    if request.user.is_authenticated:
+        return redirect("home:home")
     if request.method == "POST":
         form = RgisterForm(request.POST)
 
@@ -31,6 +33,8 @@ def user_register(request):
     return render(request, "accounts/register.html", context)
 
 def user_login(request):
+    if request.user.is_authenticated:
+        return redirect("home:home")
     if request.method == "POST":
         form = LoginForm(request.POST)
 
