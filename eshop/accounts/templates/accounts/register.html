@@ -31,7 +31,7 @@
       {{form.email}} {%if form.email.error%}
       <!--  -->
       {%for error in form.email.errors%}
-      <bold class="text-danger ms-1">{{error}}</bold>
+      <b class="text-danger ms-1">{{error}}</b>
       {%endfor%} {""} {%endif%}
     </div>
     <div class="mb-3">
@@ -44,7 +44,7 @@
       {{form.first_name}} {%if form.first_name.error%}
       <!--  -->
       {%for error in form.first_name.errors%}
-      <bold class="text-danger ms-1">{{error}}</bold>
+      <b class="text-danger ms-1">{{error}}</b>
       {%endfor%} {""} {%endif%}
     </div>
     <div class="mb-3">
@@ -57,7 +57,7 @@
       {{form.last_name}} {%if form.last_name.error%}
       <!--  -->
       {%for error in form.last_name.errors%}
-      <bold class="text-danger ms-1">{{error}}</bold>
+      <b class="text-danger ms-1">{{error}}</b>
       {%endfor%} {""} {%endif%}
     </div>
     <div class="mb-3">
@@ -70,7 +70,7 @@
       {{form.password}} {%if form.password.error%}
       <!--  -->
       {%for error in form.password.errors%}
-      <bold class="text-danger ms-1">{{error}}</bold>
+      <b class="text-danger ms-1">{{error}}</b>
       {%endfor%} {""} {%endif%}
     </div>
     <div class="mb-3">
@@ -83,7 +83,7 @@
       {{form.confirm_password}} {%if form.confirm_password.error%}
       <!--  -->
       {%for error in form.confirm_password.errors%}
-      <bold class="text-danger ms-1">{{error}}</bold>
+      <b class="text-danger ms-1">{{error}}</b>
       {%endfor%} {""} {%endif%}
     </div>
     <button class="btn btn-primary btn-lg w-100 mt-2" type="submit">

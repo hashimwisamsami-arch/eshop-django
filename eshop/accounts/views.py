@@ -5,6 +5,7 @@ from .forms import LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from .models import Profile
 
 
 def user_register(request):
@@ -71,3 +72,8 @@ def user_logout(request):
     logout(request)
     messages.success(request,message="logged out successfully",extra_tags="success")
     return redirect("home:home")
+
+def user_profile(request):
+    profile=Profile.objects.get(user_id=request.user.id)
+    context={'profile':profile}
+    return render(request, "accounts/profile.html",context)
