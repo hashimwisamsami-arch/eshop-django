@@ -4,6 +4,7 @@ from .forms import RgisterForm
 from .forms import LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 
 def user_register(request):
@@ -53,10 +54,11 @@ def user_login(request):
            
             if user is not None:
                 login(request,user)
+                messages.success(request,message="logged in successfully",extra_tags="success")
                 return redirect("home:home")
           
             else:
-                print("wrong username or password")
+                messages.error(request,message="invalid username or password",extra_tags="danger")
 
     else:
         form = LoginForm()
@@ -67,4 +69,5 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
+    messages.success(request,message="logged out successfully",extra_tags="success")
     return redirect("home:home")
