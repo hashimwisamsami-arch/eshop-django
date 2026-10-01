@@ -17,13 +17,14 @@ def user_register(request):
         if form.is_valid():
             data = form.cleaned_data
 
-            User.objects.create_user(
+            new_user=User.objects.create_user(
                 username=data["user_name"],
                 email=data["email"],
                 password=data["confirm_password"],
                 first_name=data["first_name"],
                 last_name=data["last_name"],
             )
+            new_user.save()
 
             return redirect("home:home")
 
