@@ -1,7 +1,6 @@
 
 from django.shortcuts import render, redirect
-from .forms import RgisterForm
-from .forms import LoginForm
+from .forms import RgisterForm,LoginForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
@@ -78,3 +77,22 @@ def user_profile(request):
     profile=Profile.objects.get(user_id=request.user.id)
     context={'profile':profile}
     return render(request, "accounts/profile.html",context)
+
+def user_update(request):
+    if request.method=="POST":
+        user_update_form=UserUpdateForm(request.POST,instance=request.user)
+        profile_update_form=ProfileUpdateForm(request.POST,instance=request.user.profile)
+
+        if user_update_form.is_valid() and profile_update_form.is_valid():
+            user_update_form.save()
+            profile_update_form.save()
+            messages.success(request,"updated successfully","success")
+            return redirect("accounts:user_profile")
+    else:
+        user_update_form=UserUpdateForm(instance=request.user)
+        profile_update_form=ProfileUpdateForm(instance=request.user.profile)
+    context={
+        'user_update_form':user_update_form,
+        'profile_update_form':profile_update_form
+        }
+    return render(request, "accounts/update.html",context)
