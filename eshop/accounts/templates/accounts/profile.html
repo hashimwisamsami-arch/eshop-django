@@ -1,7 +1,14 @@
 {% extends 'base.html' %} {%block title%} Profile {%endblock%} {%block body%}
 <h1>{{profile.user.username}} Profile</h1>
 <div>
+  <div><b>First Name</b>:{{profile.user.first_name}}</div>
+  <div><b>Last Name</b>:{{profile.user.last_name}}</div>
+  <div><b>Email</b>:{{profile.user.email}}</div>
   <div><b>Address</b>:{{profile.address}}</div>
   <div><b>Phone</b>:{{profile.phone}}</div>
+  <a href="{%url 'accounts:user_update'%}" class="btn btn-success mt-4">
+    <i class="bi bi-pencil-square"></i>
+    Update my profile
+  </a>
 </div>
 {%endblock%}

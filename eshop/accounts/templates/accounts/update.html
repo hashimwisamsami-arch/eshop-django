@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {%block title%} Update {%endblock%} {%block body%}
+<h2 class="text-center text-success mb-3">Update Profile</h2>
+<form
+  action=""
+  method="post"
+  class="p-3 border shadow bg-secondary bg-opacity-10"
+>
+  {%csrf_token%} {{user_update_form.as_p}} {{profile_update_form.as_p}}
+  <button type="submit" class="btn btn-success btn-lg w-100">Update</button>
+</form>
+{%endblock%}
